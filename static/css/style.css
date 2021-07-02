@@ -1,0 +1,35 @@
+.container-1, .container-2, .container-3 {
+    border: 1px solid black;
+    /*width rende il contenuto più compatto, più diminuisco più si compatta*/
+    width: 75%;
+    /*posiziona al centro il contenuto compattato con il width*/
+    /*se non usassi margin, il contenuto si compatterebbe di 75% ma solo verso un lato*/
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flex-box-container-1, .flex-box-container-2, .flex-box-rps{
+    /*attivo il div per dirgli di comportarsi da flex-box*/
+    display: flex;
+    border: 1px solid black; 
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/*apply style to every single div in .flex-box-container-1*/
+.flex-box-container-1 div {
+    padding: 10px; 
+    border: 1px solid black;
+    align-items: center;
+}
+
+.flex-box-container-2 img {
+    border: 1px solid black;
+    /*aggiunge gli spazi fra le immagini*/
+    margin: 10px;
+}
+
+.flex-box-rps img:hover {
+    box-shadow: 0px 10px 50px rgba(37,50,233,1);
+}
