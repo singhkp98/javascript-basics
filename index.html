@@ -39,12 +39,31 @@
      <!--CHALLANGE 3-->
      <div class="container-3">
          <h2>Challange 3: Rock, Paper, Scissors</h2>
-         <div class="flex-box-rps" id="flex-box-rps">
+         <div class="flex-box-rps" id="flex-box-rps-div">
              <img id="rock" src="static/images/rock.png" onclick="rpsGame(this)">
              <img id="paper" src="static/images/paper.png" onclick="rpsGame(this)">
              <img id="scissors" src="static/images/scissors.png" onclick="rpsGame(this)">
          </div>
      </div>
 
+     <!--CHALLANGE 4-->
+     <div class="container-4">
+         <h2 id="change-my-color">Challange 4: Change color of all buttons</h2>
+         <div class="flex-box-pick-color">
+             <form action="">
+                <select name="backdrop" id="background" onchange="buttonColorChange(this)">
+                    <option value="random">Random</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="reset">Reset</option>
+                </select>
+             </form>
+
+             <button class="btn btn-primary">Button 1</button>
+             <button class="btn btn-danger">Button 2</button>
+             <button class="btn btn-warning">Button 3</button>
+             <button class="btn btn-success">Button 4</button>
+         </div>
+     </div>
 </body>
 </html>
