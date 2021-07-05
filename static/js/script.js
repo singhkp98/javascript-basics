@@ -188,3 +188,75 @@ function randomColors() {
         all_buttons[i].classList.add(choices[randomNumber]); 
     }
 }
+
+/********* CHALLANGE 5: BLACKJACK **********/
+
+/*al click del bottone blackjack-hit-button, l'eventListener ascolta l'evento di click
+al seguito del quale chiama la funzione blackjackhit*/
+
+/*Usare la querySelector mi permette di evitare di usare metodi come onchange, onclick ecc.*/
+
+/*window.onload aspetta che si carichi completamente la pagina prima di estrarre i dati*/
+
+let blackjackGame = {
+    'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0},
+    'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0},
+    'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A'],
+    'cardsMap': {'2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'K':10, 'J':10, 'Q':2, 'A':[1,10]},
+};
+
+const YOU = blackjackGame['you'];
+const DEALER = blackjackGame['dealer'];
+
+const hitSound = new Audio('static/sound/deal-card.wav')
+
+window.onload=function(){
+    var hitButton = document.querySelector('#blackjack-hit-button');
+    hitButton.addEventListener('click', blackjackHit);
+
+    var dealButton = document.querySelector('#blackjack-deal-button');
+    dealButton.addEventListener('click', blackjackDeal);
+}
+
+function blackjackHit() {
+    let card = randomCard();
+    console.log(card); 
+    showCard(card, YOU);
+    updateScore(card, YOU);
+    showScore(YOU); 
+    console.log("il tuo punteggio: " + YOU['score']);
+}
+
+function blackjackDeal() {
+    let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+    console.log("la tua immagine e': " + yourImages);
+    for(let i=0; i<yourImages; i++) {
+        yourImages[i].remove(); 
+    }
+
+    let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
+    console.log("la tua immagine e': " + yourImages);
+    for(let i=0; i<dealerImages; i++) {
+        dealerImages[i].remove(); 
+    }
+}
+
+function showCard(card, activePlayer) {
+    let cardImage = document.createElement('img');
+    cardImage.src = `static/images/blackjack/${card}.png`; 
+    document.querySelector(activePlayer['div']).appendChild(cardImage);
+    hitSound.play();
+}
+
+function randomCard() {
+    let randomIndex = Math.floor(Math.random()*13);
+    return blackjackGame['cards'][randomIndex];
+}
+
+function updateScore(card, activePlayer) {
+    activePlayer['score'] += blackjackGame['cardsMap'][card];
+}
+
+function showScore(activePlayer) {
+    document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score']; 
+}

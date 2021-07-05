@@ -1,3 +1,4 @@
+<!-- !+TAB to autocomplete -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,6 +64,44 @@
              <button class="btn btn-danger">Button 2</button>
              <button class="btn btn-warning">Button 3</button>
              <button class="btn btn-success">Button 4</button>
+         </div>
+     </div>
+
+     <!--CHALLANGE 5-->
+     <div class="container-5">
+         <h2>Challange 5: Blackjack</h2>
+         <h3><span id="balckjack-results"> let's paly </span></h3>
+        
+         <div class="flex-blackjack-row-1">
+             <div id="your-box">
+                 <h2>You: <span id="your-blackjack-result">0</span></h2>
+             </div>
+             <div id="dealer-box">
+                <h2>Dealer: <span id="dealer-blackjack-result">0</span></h2>
+             </div>
+         </div>
+
+         <div class="flex-blackjack-row-2">
+             <div>
+                 <button class="btn-lg btn-primary mr-2" id="blackjack-hit-button">HIT</button>
+                 <button class="btn-lg btn-warning mr-2" id="blackjack-stand-button">STAND</button>
+                 <button class="btn-lg btn-danger mr-2" id="blackjack-deal-button">DEAL</button>
+             </div>
+         </div>
+
+         <div class="flex-blackjack-row-3">
+             <table style="border: 1px solid black">
+                 <tr>
+                     <th>Wins</th>
+                     <th>Losses</th>
+                     <th>Draws</th>
+                 </tr>
+                 <tr>
+                     <td><span id="wins">0</span></td>
+                     <td><span id="losses">0</span></td>
+                     <td><span id="draws">0</span></td>
+                 </tr>
+             </table>
          </div>
      </div>
 </body>
